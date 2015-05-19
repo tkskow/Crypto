@@ -12,8 +12,9 @@ def fermatsTest(a, n):
 
 
 def millerRabin(a, n):
-	k, m = decompose(n)
-	x = fastermod(a, n - 1, n)
+	k, m = decompose(n-1)
+	x = fastermod(a, m, n)
+	print k,m, x
 	if x == 1:
 		return "liar"
 	for j in range (0, k-1):
@@ -50,7 +51,7 @@ def runFermat ():
 	for n in numbers:
 		#fermat(n)
 		#x = int (math.sqrt(n))
-		for a in range (1, n):
+		for a in range (2, n):
 			tempString = fermatsTest(a,n)
 			if tempString == "witness" and n not in witness:
 				witness[n] = a
@@ -63,6 +64,7 @@ def runFermat ():
 				break
 
 	print "liar", liar, "\n\nwitness",  witness
+
 
 
 def runMiller ():
@@ -94,5 +96,7 @@ numbers =[41041, 62745, 63973, 75361, 101101, 126217, 172081,
 
 
 runFermat()
+
 runMiller()
+
 
