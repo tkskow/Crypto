@@ -6,7 +6,6 @@ def fermatsTest(a, n):
 	if x != 1:
 		return "witness"
 
-	#elif (n % 2 == 1 and x == 1):
 	return "liar"
 
 
@@ -14,7 +13,6 @@ def fermatsTest(a, n):
 def millerRabin(a, n):
 	k, m = decompose(n-1)
 	x = fastermod(a, m, n)
-	print k,m, x
 	if x == 1:
 		return "liar"
 	for j in range (0, k-1):
@@ -49,17 +47,12 @@ def runFermat ():
 	liar = {}
 	counter = 0
 	for n in numbers:
-		#fermat(n)
-		#x = int (math.sqrt(n))
 		for a in range (2, n):
 			tempString = fermatsTest(a,n)
 			if tempString == "witness" and n not in witness:
 				witness[n] = a
-				#print a, n, "witness", witness
 			elif tempString == "liar" and n not in liar:
 				liar[n] = a
-				#print a, n, "liar", liar
-
 			if n in liar and n in witness:
 				break
 
@@ -72,16 +65,12 @@ def runMiller ():
 	liar = {}
 	counter = 0
 	for n in numbers:
-		#fermat(n)
-		#x = int (math.sqrt(n))
 		for a in range (1, n):
 			tempString = millerRabin(a,n)
 			if tempString == "witness" and n not in witness:
 				witness[n] = a
-				#print a, n, "witness", witness
 			elif tempString == "liar" and n not in liar:
 				liar[n] = a
-				#print a, n, "liar", liar
 
 			if n in liar and n in witness:
 				break
