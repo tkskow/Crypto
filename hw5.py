@@ -30,4 +30,4 @@ def modinv(a, m):
 
 
 
-print calculate(-3,29,15,12,0,-2)
+print calculate(-3,29,15,12,0,27)
